@@ -1,0 +1,20 @@
+.hypno-toad {
+  width: 100%;
+}
+
+.stats {
+  position: absolute;
+
+  right: 40px;
+  top: 20px;
+}
+
+.main-text {
+  font-family: 'Oswald', sans-serif;
+  font-size: 54px;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  position: absolute;
+  bottom: 0px;
+  left: 564px;
+}
